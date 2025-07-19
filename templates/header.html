@@ -1,0 +1,81 @@
+	{% load static %}
+	<header>
+		<div class="top-bar_sub_w3layouts container-fluid">
+			<div class="row">
+				<div class="col-md-4 logo text-left">
+					<a href="{% url 'homepage' %}">
+						<img style="max-width: 180px;" src="{% static 'images/logo.svg' %}" alt="">
+
+					</a>
+				</div>
+				<div class="col-md-4 top-forms text-center mt-lg-3 mt-md-1 mt-0">
+					<span>
+						«Женщины, мир и безопасность»
+					</span>
+					<!-- <span class="mx-lg-4 mx-md-2  mx-1">
+						<a href="login.html">
+							<i class="fas fa-lock"></i> Sign In</a>
+					</span>
+					<span>
+						<a href="register.html">
+							<i class="far fa-user"></i> Register</a>
+					</span> -->
+				</div>
+				<div class="col-md-4 log-icons text-right">
+
+					<!-- Social Networks -->
+					{% include 'includes/networks.html' %}
+				</div>
+			</div>
+		</div>
+
+		<div class="header_top " id="home">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<button class="navbar-toggler navbar-toggler-right mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+				</button>
+
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item {% if request.path == '/news/' %} active {% endif %}">
+							<a class="nav-link" href="{% url 'news' %}">Новости</a>
+						</li>
+						<li class="nav-item {% if request.path == '/about-us/' %} active {% endif %}">
+							<a class="nav-link" href="{% url 'about-us' %}">О нас</a>
+						</li>
+						<!-- <li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+							    aria-expanded="false">
+								О нас
+							</a>
+							<div class="dropdown-menu {% if request.path == 'about-us' %} active {% endif %}" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="{% url 'about-us' %}"></a>
+								<a class="dropdown-item" href="{% url 'about-us' %}|add:'/#mission'">Наша миссия</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{% url 'about-us' %}|add:'/#history'">История</a>
+							</div>
+						</li> -->
+						<li class="nav-item {% if request.path == '/podcast/' %} active {% endif %}">
+							<a class="nav-link" href="{% url 'podcast' %}">Подкасты</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#contacts">Контакты</a>
+						</li>
+
+					</ul>
+					<!-- <form action="#" method="post" class="form-inline my-2 my-lg-0 header-search">
+						<input class="form-control mr-sm-2" type="search" placeholder="Search here..." name="Search" required="">
+						<button class="btn btn1 my-2 my-sm-0" type="submit">
+							<i class="fas fa-search"></i>
+						</button>
+					</form> -->
+
+
+
+				</div>
+			</nav>
+
+		</div>
+	</header>

@@ -1,0 +1,15 @@
+{% load social_networks %}
+
+{% get_networks as networks %}
+
+{% load static %}
+<ul class="social_list1 mt-3">
+	{% for i in networks %}
+	<li class="mx-3">
+		<a href="{{i.url}}" class="row">
+			<img style="max-width: 30px;" src="/static/images/socialnetworks/{{ i.type }}.svg" alt="{{i.type}}">
+			<!-- <span class="text-dark">{{ i.name }}</span> -->
+		</a>
+	</li>
+	{% endfor %}
+</ul>

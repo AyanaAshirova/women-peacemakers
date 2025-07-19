@@ -1,0 +1,14 @@
+{% load social_networks %}
+
+{% get_networks as networks %}
+
+<ul>
+    {% for i in networks %}
+    <li class="mx-3">
+        <a class="{{ i.type }}" href="{{ i.url }}">
+            <i class="fab fa-{{i.type}}"></i>
+            <span>{{ i.name }}</span>
+        </a>
+    </li>
+	{% endfor %}
+</ul>

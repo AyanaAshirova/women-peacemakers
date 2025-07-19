@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+
+	<!--//banner-->
+	<section class="banner-bottom">
+		<!--/blog-->
+		<div class="container">
+			<div class="row">
+				<!--left-->
+				<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+					<div class="blog-grid-top">
+						<div class="b-grid-top">
+							<div class="blog_info_left_grid">
+								<a href="single.html">
+									<img src="{{ news.image.url }}" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="blog-info-middle">
+								<ul>
+									<li>
+										<a href="#">
+											<i class="far fa-calendar-alt"></i>{{ news.display_date }}</a>
+									</li>
+									<!-- <li class="mx-2">
+										<a href="#">
+											<i class="far fa-thumbs-up"></i> 201 Likes</a>
+									</li> -->
+									<!-- <li>
+										<a href="#">
+											<i class="far fa-comment"></i> 15 Comments</a>
+									</li> -->
+									
+								</ul>
+							</div>
+						</div>
+
+						<h3>
+							<a href="single.html">{{ news.title }}</a>
+						</h3>
+						<p>{{ news.content }}</p>
+					</div>
+				
+				</div>
+
+				<!--//left-->
+				<!--right-->
+				<aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+					<div class="right-blog-info text-left">
+
+						<div class="tech-btm">
+							<h4>Популярные</h4>
+                            {% for i in popular_news %}
+							<div class="blog-grids row mb-3">
+								<div class="col-md-5 blog-grid-left">
+									<a href="{% url 'news-details' i.id %}">
+										<img src="{{ i.image.url }}" class="img-fluid" alt="">
+									</a>
+								</div>
+								<div class="col-md-7 blog-grid-right">
+
+									<h5>
+										<a href="{% url 'news-details' i.id %}">{{ i.title }}</a>
+									</h5>
+									<div class="sub-meta">
+										<span>
+											<i class="far fa-clock"></i>{{ i.display_date }}</span>
+									</div>
+								</div>
+
+							</div>
+                            {% endfor %}
+
+                            
+						</div>
+						<div class="single-gd tech-btm">
+							<h4>Последние новости</h4>
+                            {% for i in resent_news %}
+							<div class="blog-grids">
+								<div class="blog-grid-left">
+									<a href="{% url 'news-details' i.id %}">
+										<img src="{{ i.image.url }}" class="img-fluid" alt="">
+									</a>
+								</div>
+                                <h5 class="mb-2">
+                                    <a href="{% url 'news-details' i.id %}">{{ i.title }}</a>
+                                </h5>
+								<div class="clearfix"> </div>
+							</div>
+                            {% endfor %}
+						</div>
+					</div>
+
+				</aside>
+				<!--//right-->
+			</div>
+		</div>
+	</section>
+	<!--//main-->
+	
+{% endblock %}

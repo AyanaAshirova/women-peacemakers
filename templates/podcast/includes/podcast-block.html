@@ -1,0 +1,55 @@
+   <div class="site-section">
+      <div class="container">
+		  <h3 class="tittle">Подкасты</h3>
+    <div class="inner-sec">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="featured-user  mb-5 mb-lg-0">
+              <h3 class="mb-4">Каналы</h3>
+              <ul class="list-unstyled">
+                {% for i in podcast_channels %}
+                <li>
+                  <a href="#" class="d-flex align-items-center">
+                    <img src="{{ i.image.url }}" alt="Image" class="img-fluid mr-2">
+                    <div class="podcaster">
+                      <span class="d-block">{{ i.name }}</span>
+                      <span class="small">{{ i.releases.count }} подкастов</span>
+                    </div>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-9">
+
+            {% for i in podcast_release_list %}
+            <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
+              <div class="image" style="background-image: url({{i.image.url}});"></div>
+              <div class="text">
+                <h5 class="font-weight-light"><a href="single-post.html">{{ i.name }}</a></h5>
+                <div class="mb-3">
+                  <span class="text-black-opacity-05">{{ i.channel.name }}</span>
+                  <span class="sep">/</span> 
+                  {{ i.display_date }}
+                </div>
+
+                <div class="player">
+                  <audio id="player2" preload="none" controls style="max-width: 100%">
+                    <source src="{{ i.audio.url }}" type="audio/mp3">
+                  </audio>
+                </div>
+
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="container" data-aos="fade-up">
+            <a style="display: block;margin: auto;" href="{% url 'podcast' %}">перейти к подкастам</a>
+          </div>
+        </div>
+    </div>
+
+  </div>
+</div>
